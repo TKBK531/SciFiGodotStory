@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_cellar"]
+script = ExtResource("2")
+text = "Try the cellar door"
+target_node_id = "ending_treasure"
+required_flags = {
+"has_key": true
+}
+set_flags = {}
+
+[sub_resource type="Resource" id="StoryChoice_stairs"]
+script = ExtResource("2")
+text = "Climb the stairs"
+target_node_id = "ending_upstairs"
+required_flags = {}
+set_flags = {}
+
+[resource]
+script = ExtResource("1")
+id = "hallway"
+text = "The hallway opens into a junction. A locked cellar door sits to one side; a staircase climbs into darkness on the other."
+set_flags_on_enter = {}
+choices = [SubResource("StoryChoice_cellar"), SubResource("StoryChoice_stairs")]

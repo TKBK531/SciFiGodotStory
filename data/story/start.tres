@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_front"]
+script = ExtResource("2")
+text = "Go in through the front door"
+target_node_id = "front_door"
+required_flags = {}
+set_flags = {
+"entered_front": true
+}
+
+[sub_resource type="Resource" id="StoryChoice_back"]
+script = ExtResource("2")
+text = "Sneak around to the back"
+target_node_id = "back_door"
+required_flags = {}
+set_flags = {
+"entered_back": true
+}
+
+[resource]
+script = ExtResource("1")
+id = "start"
+text = "The old house at the end of Marrow Lane has been empty for years. Tonight, on a dare, you push open its rusted gate.\n\nDo you go in through the front door, or sneak around to the back?"
+set_flags_on_enter = {}
+choices = [SubResource("StoryChoice_front"), SubResource("StoryChoice_back")]

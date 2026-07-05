@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_hallway"]
+script = ExtResource("2")
+text = "Head down the hallway"
+target_node_id = "hallway"
+required_flags = {}
+set_flags = {}
+
+[resource]
+script = ExtResource("1")
+id = "front_door"
+text = "The front door creaks open onto a dust-choked foyer. Moonlight slants through a broken window, and you can hear something shifting deeper in the house.\n\nA narrow hallway leads further in."
+set_flags_on_enter = {}
+choices = [SubResource("StoryChoice_hallway")]

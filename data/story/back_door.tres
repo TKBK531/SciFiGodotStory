@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_hallway"]
+script = ExtResource("2")
+text = "Head down the hallway"
+target_node_id = "hallway"
+required_flags = {}
+set_flags = {}
+
+[resource]
+script = ExtResource("1")
+id = "back_door"
+text = "The back gate hangs loose. Behind a stack of rotted crates, you find a small iron key half-buried in the dirt. You pocket it and slip inside through the kitchen.\n\nA narrow hallway leads further in."
+set_flags_on_enter = {
+"has_key": true
+}
+choices = [SubResource("StoryChoice_hallway")]
