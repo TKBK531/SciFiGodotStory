@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_force"]
+script = ExtResource("2")
+text = "Force the airlock open."
+target_node_id = "pod_chamber"
+required_flags = {}
+set_flags = {
+"forced": true,
+"learned_truth": false
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_hack"]
+script = ExtResource("2")
+text = "Slice into the console instead."
+target_node_id = "console_intel"
+required_flags = {}
+set_flags = {
+"hacked": true
+}
+impact = 2
+
+[resource]
+script = ExtResource("1")
+id = "start"
+chapter_id = "chapter_01"
+label = "Arrival"
+text = "Kharon-9's distress beacon has been pulsing for six years. You only picked it up because your ship's old military-band receiver still listens on frequencies nobody uses anymore.\n\nThe station is dark except for one corridor light, guttering behind a frost-sealed airlock. Your suit's bio-scanner locks onto something inside - a heartbeat, slow and steady, where the crew manifest says there should be nothing left alive."
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_force"), SubResource("StoryChoice_hack")]

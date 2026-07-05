@@ -37,6 +37,7 @@ func _goto_node(node_id: String) -> void:
 		return
 	_current_node = node
 	StoryState.goto_node(node_id)
+	StoryCodex.record_node_visit(node)
 	for flag_name in node.set_flags_on_enter:
 		StoryState.set_flag(flag_name, node.set_flags_on_enter[flag_name])
 	background.texture = node.image
@@ -88,6 +89,7 @@ func _clear_choices() -> void:
 		child.queue_free()
 
 func _on_choice_selected(choice: StoryChoice) -> void:
+	StoryCodex.record_choice(_current_node.id, choice.target_node_id)
 	for flag_name in choice.set_flags:
 		StoryState.set_flag(flag_name, choice.set_flags[flag_name])
 	_goto_node(choice.target_node_id)

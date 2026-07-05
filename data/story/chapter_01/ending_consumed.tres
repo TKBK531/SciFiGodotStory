@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1")
 id = "ending_consumed"
+chapter_id = "chapter_01"
+label = "Consumed"
 text = "The seal tears loose under your hands and the thing inside doesn't wait for an introduction. It moves faster than Voss's old body should allow, and the last clear thought you have is that the logs were right - it never wanted to take anything.\n\nIt just didn't expect you to refuse it so violently.\n\n— Kharon-9 keeps its distress beacon running. —"
 set_flags_on_enter = {}
+is_chapter_end = true
 choices = []

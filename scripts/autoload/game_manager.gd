@@ -10,6 +10,7 @@ signal game_resumed
 const MAIN_MENU_SCENE: String = "res://scenes/main_menu/main_menu.tscn"
 const GAMEPLAY_SCENE: String = "res://scenes/gameplay/gameplay.tscn"
 const LOAD_GAME_SCENE: String = "res://scenes/load_game/load_game.tscn"
+const STORY_MAP_SCENE: String = "res://scenes/story_map/story_map.tscn"
 
 var is_paused: bool = false
 
@@ -32,6 +33,9 @@ func continue_latest_game() -> bool:
 
 func open_load_game_screen() -> void:
 	_change_scene(LOAD_GAME_SCENE)
+
+func open_story_map_screen() -> void:
+	_change_scene(STORY_MAP_SCENE)
 
 func return_to_main_menu() -> void:
 	_change_scene(MAIN_MENU_SCENE)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1"]
 [ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/ui/save_slots_panel.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/story_map_panel.tscn" id="4"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 layer = 10
@@ -56,6 +57,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
 text = "Save Game"
 
+[node name="StoryMapButton" type="Button" parent="CenterContainer/Panel/Margin/MainButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+text = "Story Map"
+
 [node name="MainMenuButton" type="Button" parent="CenterContainer/Panel/Margin/MainButtons"]
 layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
@@ -71,7 +77,12 @@ unique_name_in_owner = true
 visible = false
 mode = 1
 
+[node name="StoryMapPanel" parent="CenterContainer/Panel/Margin" instance=ExtResource("4")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="pressed" from="CenterContainer/Panel/Margin/MainButtons/ResumeButton" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/Margin/MainButtons/SaveButton" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/Margin/MainButtons/StoryMapButton" to="." method="_on_story_map_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/Margin/MainButtons/MainMenuButton" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/Margin/MainButtons/QuitButton" to="." method="_on_quit_pressed"]

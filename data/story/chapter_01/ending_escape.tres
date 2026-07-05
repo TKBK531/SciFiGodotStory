@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1")
 id = "ending_escape"
+chapter_id = "chapter_01"
+label = "Walk Away"
 text = "You kill the feed to the pod's containment field and don't look back. Behind you, the heartbeat on your scanner slows, falters, and finally stops somewhere around the time your shuttle clears the station's shadow.\n\nYou tell your ship's log it was a standard derelict, no survivors. You almost believe it yourself.\n\n— You left Kharon-9 exactly as dark as you found it. —"
 set_flags_on_enter = {}
+is_chapter_end = true
 choices = []

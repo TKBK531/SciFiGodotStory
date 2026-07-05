@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_open_trust"]
+script = ExtResource("2")
+text = "Open the pod and let it see you."
+target_node_id = "ending_bond"
+required_flags = {
+"learned_truth": true
+}
+set_flags = {}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_open_force"]
+script = ExtResource("2")
+text = "Force the pod open."
+target_node_id = "ending_consumed"
+required_flags = {
+"learned_truth": false
+}
+set_flags = {}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_escape"]
+script = ExtResource("2")
+text = "Kill the life support and go."
+target_node_id = "ending_escape"
+required_flags = {}
+set_flags = {}
+impact = 2
+
+[resource]
+script = ExtResource("1")
+id = "pod_chamber"
+chapter_id = "chapter_01"
+label = "The Pod"
+text = "Deeper in the station, the corridor opens into what used to be the medbay. A containment pod stands upright at its center, its casing grown over with something that looks like frost and veins at once. Inside, a shape shifts - not quite human anymore, but the outline is unmistakably Voss.\n\nThe heartbeat on your scanner is perfectly in time with your own now."
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_open_trust"), SubResource("StoryChoice_open_force"), SubResource("StoryChoice_escape")]

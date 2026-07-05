@@ -67,6 +67,12 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Load Game"
 
+[node name="StoryMapButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+text = "Story Map"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1933561324]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
@@ -75,4 +81,5 @@ text = "Quit"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StoryMapButton" to="." method="_on_story_map_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

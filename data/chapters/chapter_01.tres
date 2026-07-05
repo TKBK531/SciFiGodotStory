@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StoryChapter" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_chapter.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "chapter_01"
+number = 1
+title = "Kharon-9"
+start_node_id = "start"

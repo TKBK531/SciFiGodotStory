@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_follow"]
+script = ExtResource("2")
+text = "Follow the heartbeat."
+target_node_id = "pod_chamber"
+required_flags = {}
+set_flags = {
+"learned_truth": true
+}
+impact = 0
+
+[resource]
+script = ExtResource("1")
+id = "console_intel"
+chapter_id = "chapter_01"
+label = "The Logs"
+text = "The console's shell is pitted with frost, but its core still runs warm. You bridge your slate to what's left of the station network and pull whatever the drives haven't eaten.\n\nResearch logs. A retrieval mission gone wrong on one of Saturn's ice moons. A specimen the crew called \"the Bloom\" - not a weapon, not a parasite, something closer to a language. The last entry is Commander Elias Voss's voice, calm: \"It isn't taking anything from us. It's asking.\""
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_follow")]
