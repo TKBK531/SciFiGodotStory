@@ -2,7 +2,9 @@ extends Control
 
 ## Drives the story: shows the current StoryNode's text with a typewriter
 ## effect, reveals its optional image, and builds choice buttons dynamically
-## from whichever choices currently satisfy StoryState's flags.
+## from whichever choices currently satisfy StoryState's flags. Story text
+## may contain [codex:id]Label[/codex] mentions - these unlock the entry and
+## render as clickable, category-colored links that open CodexEntryPopup.
 
 @onready var background: TextureRect = %Background
 @onready var story_text: RichTextLabel = %StoryText
@@ -17,6 +19,10 @@ var _text_fully_shown: bool = true
 
 func _ready() -> void:
 	pause_button.pressed.connect(_on_pause_pressed)
+	story_text.mouse_filter = Control.MOUSE_FILTER_PASS
+	story_text.meta_clicked.connect(_on_codex_link_clicked)
+	story_text.meta_hover_started.connect(func(_meta: Variant) -> void: story_text.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND)
+	story_text.meta_hover_ended.connect(func(_meta: Variant) -> void: story_text.mouse_default_cursor_shape = Control.CURSOR_ARROW)
 	var start_id := StoryState.current_node_id
 	if start_id.is_empty():
 		start_id = StoryState.START_NODE_ID
@@ -40,6 +46,10 @@ func _goto_node(node_id: String) -> void:
 	StoryCodex.record_node_visit(node)
 	for flag_name in node.set_flags_on_enter:
 		StoryState.set_flag(flag_name, node.set_flags_on_enter[flag_name])
+	for entry_id in node.unlocks:
+		StoryCodex.unlock_entry(entry_id)
+	for entry_id in CodexText.extract_codex_ids(node.text):
+		StoryCodex.unlock_entry(entry_id)
 	background.texture = node.image
 	background.visible = node.image != null
 	_clear_choices()
@@ -49,11 +59,12 @@ func _type_text(full_text: String) -> void:
 	if _typing_tween and _typing_tween.is_valid():
 		_typing_tween.kill()
 	_text_fully_shown = false
-	story_text.text = full_text
+	story_text.text = CodexText.expand_codex_tags(full_text)
 	story_text.visible_characters = 0
-	var duration: float = max(full_text.length() / CHARS_PER_SECOND, 0.05)
+	var total_chars := story_text.get_total_character_count()
+	var duration: float = max(total_chars / CHARS_PER_SECOND, 0.05)
 	_typing_tween = create_tween()
-	_typing_tween.tween_property(story_text, "visible_characters", full_text.length(), duration)
+	_typing_tween.tween_property(story_text, "visible_characters", total_chars, duration)
 	_typing_tween.finished.connect(_on_typing_finished)
 
 func _skip_typing() -> void:
@@ -90,9 +101,14 @@ func _clear_choices() -> void:
 
 func _on_choice_selected(choice: StoryChoice) -> void:
 	StoryCodex.record_choice(_current_node.id, choice.target_node_id)
+	for entry_id in choice.unlocks:
+		StoryCodex.unlock_entry(entry_id)
 	for flag_name in choice.set_flags:
 		StoryState.set_flag(flag_name, choice.set_flags[flag_name])
 	_goto_node(choice.target_node_id)
 
 func _on_pause_pressed() -> void:
 	GameManager.toggle_pause()
+
+func _on_codex_link_clicked(meta: Variant) -> void:
+	CodexEntryPopup.show_entry(str(meta))

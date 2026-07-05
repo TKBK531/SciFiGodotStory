@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "voss_keepsake"
+category_id = "collectable"
+title = "A Frost-Cracked Photograph"
+description = "Tucked behind the pod's housing: a physical photograph, edges curled with frost. A younger Voss, unsmiling, standing beside someone the image doesn't identify. Whatever else he became, he was someone before this."

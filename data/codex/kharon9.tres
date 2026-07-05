@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "kharon9"
+category_id = "place"
+title = "Kharon-9"
+description = "A Halcyon Dynamics deep-space research outpost, named - like all Halcyon stations - after a figure from the mythology of the dead. Its distress beacon ran silent for six years before anyone answered it."
+backstory = "Commissioned as a joint xenobiology outpost eleven years before its beacon fell silent, Kharon-9 was never meant to be a long-term posting - most crews rotated out after eighteen months. The final crew stayed on by choice, then didn't leave at all."
+details = {
+"Coordinates": "Trans-Neptunian sector, drift anchor TN-2277"
+}

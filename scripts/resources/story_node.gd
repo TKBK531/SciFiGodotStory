@@ -25,5 +25,9 @@ extends Resource
 ## beat). Reaching it marks the chapter "cleared" in StoryCodex.
 @export var is_chapter_end: bool = false
 
+## Codex entry ids (see CodexEntry) unlocked the moment this node is entered,
+## even if not textually mentioned via a [codex:id] tag in `text`.
+@export var unlocks: Array[String] = []
+
 ## Leave empty to make this node an ending.
 @export var choices: Array[StoryChoice] = []

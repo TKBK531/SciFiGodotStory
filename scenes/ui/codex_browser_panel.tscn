@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/codex_browser_panel.gd" id="1"]
+[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2"]
+
+[node name="CodexBrowserPanel" type="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="CategoriesView" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="CategoriesView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+text = "Collectables"
+
+[node name="CategoriesScroll" type="ScrollContainer" parent="CategoriesView"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CategoriesGrid" type="GridContainer" parent="CategoriesView/CategoriesScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="CategoriesBackButton" type="Button" parent="CategoriesView"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="EntriesView" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="EntriesTitle" type="Label" parent="EntriesView"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+text = "Category"
+
+[node name="EntriesScroll" type="ScrollContainer" parent="EntriesView"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EntriesGrid" type="GridContainer" parent="EntriesView/EntriesScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="EntriesBackButton" type="Button" parent="EntriesView"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="DetailView" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="DetailCategoryLabel" type="Label" parent="DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "CATEGORY"
+
+[node name="DetailTitleLabel" type="Label" parent="DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Title"
+
+[node name="ContentRow" type="HBoxContainer" parent="DetailView"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="LeftScroll" type="ScrollContainer" parent="DetailView/ContentRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DetailBody" type="RichTextLabel" parent="DetailView/ContentRow/LeftScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ImageFrame" type="PanelContainer" parent="DetailView/ContentRow"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="ImageMargin" type="MarginContainer" parent="DetailView/ContentRow/ImageFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DetailImageRect" type="TextureRect" parent="DetailView/ContentRow/ImageFrame/ImageMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DetailBackButton" type="Button" parent="DetailView"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"

@@ -19,3 +19,6 @@ enum Impact { NONE, MINOR, MAJOR }
 @export var set_flags: Dictionary = {}
 
 @export var impact: Impact = Impact.NONE
+
+## Codex entry ids unlocked when the player picks this specific choice.
+@export var unlocks: Array[String] = []

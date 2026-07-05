@@ -1,11 +1,12 @@
 extends Node
 
-## Persistent, cross-save record of every node the player has ever reached
-## and every choice they've ever taken, across every slot and every New Game.
-## This is what lets the Story Map show "you found this in another
-## playthrough" vs "you have never seen this" - deliberately separate from
-## SaveManager's per-slot save files, since it's meta-knowledge that should
-## survive starting over.
+## Persistent, cross-save record of every node the player has ever reached,
+## every choice they've ever taken, and every CodexEntry (character/place/
+## history/collectable) they've ever unlocked - across every slot and every
+## New Game. This is what lets the Story Map and Collectables screen show
+## "you found this elsewhere" vs "you have never seen this" - deliberately
+## separate from SaveManager's per-slot save files, since it's meta-knowledge
+## that should survive starting over.
 
 const CODEX_PATH: String = "user://story_codex.json"
 
@@ -13,6 +14,7 @@ var visited_nodes: Dictionary = {}
 var discovered_choices: Dictionary = {}
 var visited_chapters: Dictionary = {}
 var cleared_chapters: Dictionary = {}
+var unlocked_entries: Dictionary = {}
 
 func _ready() -> void:
 	_load()
@@ -37,6 +39,11 @@ func record_choice(from_node_id: String, to_node_id: String) -> void:
 		discovered_choices[key] = true
 		_save()
 
+func unlock_entry(entry_id: String) -> void:
+	if not unlocked_entries.has(entry_id):
+		unlocked_entries[entry_id] = true
+		_save()
+
 func is_node_visited(node_id: String) -> bool:
 	return visited_nodes.has(node_id)
 
@@ -49,8 +56,14 @@ func is_chapter_started(chapter_id: String) -> bool:
 func is_chapter_cleared(chapter_id: String) -> bool:
 	return cleared_chapters.has(chapter_id)
 
+func is_entry_unlocked(entry_id: String) -> bool:
+	return unlocked_entries.has(entry_id)
+
 func has_any_progress() -> bool:
 	return not visited_nodes.is_empty()
+
+func has_any_entries_unlocked() -> bool:
+	return not unlocked_entries.is_empty()
 
 func _edge_key(from_node_id: String, to_node_id: String) -> String:
 	return "%s::%s" % [from_node_id, to_node_id]
@@ -65,6 +78,7 @@ func _save() -> void:
 		"discovered_choices": discovered_choices,
 		"visited_chapters": visited_chapters,
 		"cleared_chapters": cleared_chapters,
+		"unlocked_entries": unlocked_entries,
 	}
 	file.store_string(JSON.stringify(data, "\t"))
 
@@ -81,3 +95,4 @@ func _load() -> void:
 	discovered_choices = parsed.get("discovered_choices", {})
 	visited_chapters = parsed.get("visited_chapters", {})
 	cleared_chapters = parsed.get("cleared_chapters", {})
+	unlocked_entries = parsed.get("unlocked_entries", {})

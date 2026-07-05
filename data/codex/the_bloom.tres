@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "the_bloom"
+category_id = "history"
+title = "The Bloom"
+description = "The crew's name for a lifeform recovered from Mnemosyne during a retrieval mission gone wrong. Not a weapon. Not a parasite. Commander Voss's logs describe it as \"something closer to a language.\""
+backstory = "Recovered during a routine subsurface survey, the specimen was initially catalogued as geological. Reclassification came only after two researchers reported the same recurring dream independently, on the same night, in a language neither of them spoke."
+details = {
+"Date": "Six years before present",
+"Location": "Mnemosyne, sub-surface ice shelf"
+}

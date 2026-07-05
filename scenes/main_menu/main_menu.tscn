@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sikigfa8qhxg"]
 
 [ext_resource type="Script" uid="uid://b3wde0ucogi0m" path="res://scripts/ui/main_menu.gd" id="1"]
-[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2"]
+[ext_resource type="Theme" uid="uid://5yuc8a5xfje5" path="res://assets/themes/main_theme.tres" id="2"]
 
 [node name="MainMenu" type="Control" unique_id=1304001455]
 layout_mode = 3
@@ -67,11 +67,17 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Load Game"
 
-[node name="StoryMapButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="StoryMapButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1298769320]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Story Map"
+
+[node name="CollectablesButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2074387688]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+text = "Collectables"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1933561324]
 custom_minimum_size = Vector2(220, 0)
@@ -82,4 +88,5 @@ text = "Quit"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StoryMapButton" to="." method="_on_story_map_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CollectablesButton" to="." method="_on_collectables_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

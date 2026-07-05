@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "voss"
+category_id = "character"
+title = "Elias Voss"
+description = "Commander of Kharon-9's ill-fated research mission. Sent to catalogue a specimen retrieved from Mnemosyne, he was the last crew member listed alive - and the first to understand that the Bloom wasn't hostile. What became of him depends on the choices made in the medbay."
+backstory = "Before Kharon-9, Voss spent eleven years running deep-survey missions for Halcyon Dynamics without incident - the kind of quiet, competent career that gets you handed the assignments no one wants to explain to a review board. He volunteered for the Mnemosyne retrieval personally, over the objections of two of his own crew."
+facts = ["Logged more deep-space hours than any other Halcyon commander of his rank.", "Kept a physical photograph in his quarters - unusual for a crew that went almost entirely paperless.", "His final log entry contains no distress call, only a description of what he was feeling."]
