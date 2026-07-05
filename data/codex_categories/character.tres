@@ -8,3 +8,4 @@ id = "character"
 label = "Characters"
 color = Color(0.85, 0.45, 0.35, 1)
 sort_order = 0
+detail_layout = 1

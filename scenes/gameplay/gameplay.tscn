@@ -71,6 +71,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 120)
 bbcode_enabled = true
 scroll_active = true
+meta_underlined = false
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="BottomPanel/Margin/VBoxContainer"]
 unique_name_in_owner = true

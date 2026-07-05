@@ -98,40 +98,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Title"
 
-[node name="ContentRow" type="HBoxContainer" parent="DetailView"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 24
-
-[node name="LeftScroll" type="ScrollContainer" parent="DetailView/ContentRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DetailBody" type="RichTextLabel" parent="DetailView/ContentRow/LeftScroll"]
+[node name="DetailContent" type="Control" parent="DetailView"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-
-[node name="ImageFrame" type="PanelContainer" parent="DetailView/ContentRow"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="ImageMargin" type="MarginContainer" parent="DetailView/ContentRow/ImageFrame"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="DetailImageRect" type="TextureRect" parent="DetailView/ContentRow/ImageFrame/ImageMargin"]
-unique_name_in_owner = true
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
+size_flags_vertical = 3
 
 [node name="DetailBackButton" type="Button" parent="DetailView"]
 unique_name_in_owner = true

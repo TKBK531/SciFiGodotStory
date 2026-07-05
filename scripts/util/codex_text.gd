@@ -52,7 +52,9 @@ static func _render_link(entry_id: String, label: String) -> String:
 		var category := CodexDatabase.get_category(entry.category_id)
 		if category != null:
 			color = category.color
-	return "[url=%s][color=#%s]%s[/color][/url]" % [entry_id, color.to_html(false), label]
+	# [color] must wrap [url], not the other way around - Godot's RichTextLabel
+	# doesn't reliably apply a [color] nested inside a [url] meta span.
+	return "[color=#%s][url=%s]%s[/url][/color]" % [color.to_html(false), entry_id, label]
 
 ## Composes an entry's description/backstory/facts/details into one bbcode
 ## body, skipping whichever fields are empty - shared by CodexEntryPopup
