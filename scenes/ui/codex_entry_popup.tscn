@@ -23,25 +23,44 @@ grow_vertical = 2
 theme = ExtResource("2")
 
 [node name="Panel" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 28
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 28
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 10
-custom_minimum_size = Vector2(360, 0)
+theme_override_constants/separation = 12
+custom_minimum_size = Vector2(400, 0)
 
-[node name="CategoryLabel" type="Label" parent="CenterContainer/Panel/Margin/VBoxContainer"]
+[node name="HeaderRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CategoryChip" type="PanelContainer" parent="CenterContainer/Panel/Margin/VBoxContainer/HeaderRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
+
+[node name="CategoryLabel" type="Label" parent="CenterContainer/Panel/Margin/VBoxContainer/HeaderRow/CategoryChip"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
 text = "CATEGORY"
+
+[node name="HeaderSpacer" type="Control" parent="CenterContainer/Panel/Margin/VBoxContainer/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxContainer/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(28, 28)
+text = "×"
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/Panel/Margin/VBoxContainer"]
 unique_name_in_owner = true
@@ -50,10 +69,8 @@ theme_override_font_sizes/font_size = 26
 text = "Title"
 
 [node name="IllustrationFrame" type="PanelContainer" parent="CenterContainer/Panel/Margin/VBoxContainer"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
-visible = false
 
 [node name="ImageMargin" type="MarginContainer" parent="CenterContainer/Panel/Margin/VBoxContainer/IllustrationFrame"]
 layout_mode = 2
@@ -68,9 +85,12 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="BodySeparator" type="HSeparator" parent="CenterContainer/Panel/Margin/VBoxContainer"]
+layout_mode = 2
+
 [node name="DescriptionScroll" type="ScrollContainer" parent="CenterContainer/Panel/Margin/VBoxContainer"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 260)
+custom_minimum_size = Vector2(0, 220)
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="CenterContainer/Panel/Margin/VBoxContainer/DescriptionScroll"]
 unique_name_in_owner = true
@@ -79,8 +99,3 @@ size_flags_horizontal = 3
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
-
-[node name="CloseButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Close"

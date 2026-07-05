@@ -9,6 +9,7 @@ extends RefCounted
 
 static var _tag_regex: RegEx
 static var _id_regex: RegEx
+static var _placeholder_cache: Dictionary = {}
 
 static func _ensure_regex() -> void:
 	if _tag_regex == null:
@@ -77,3 +78,17 @@ static func build_entry_body(entry: CodexEntry) -> String:
 			fact_lines.append("• %s" % fact)
 		parts.append("[b]Interesting Facts[/b]\n%s" % "\n".join(fact_lines))
 	return "\n\n".join(parts)
+
+## Solid-color square usable as a category "folder" swatch or as a stand-in
+## illustration for entries that don't have real art yet - shared by
+## CodexBrowserPanel and CodexEntryPopup so both look intentional even
+## before art assets exist.
+static func placeholder_texture(color: Color, size: Vector2i = Vector2i(128, 128)) -> ImageTexture:
+	var key := "%s_%dx%d" % [color.to_html(true), size.x, size.y]
+	if _placeholder_cache.has(key):
+		return _placeholder_cache[key]
+	var image := Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
+	image.fill(color)
+	var texture := ImageTexture.create_from_image(image)
+	_placeholder_cache[key] = texture
+	return texture

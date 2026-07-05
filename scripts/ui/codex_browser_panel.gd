@@ -12,7 +12,7 @@ extends Control
 signal closed
 
 const TILE_SIZE := Vector2(140, 140)
-const PLACEHOLDER_SIZE := Vector2i(96, 96)
+const TILE_ICON_SIZE := Vector2i(96, 96)
 const SIDE_IMAGE_WIDTH := 320.0
 const TOP_IMAGE_HEIGHT := 280.0
 
@@ -31,7 +31,6 @@ const TOP_IMAGE_HEIGHT := 280.0
 @onready var detail_content: Control = %DetailContent
 @onready var detail_back_button: Button = %DetailBackButton
 
-var _placeholder_cache: Dictionary = {}
 var _current_category: CodexCategory
 
 func _ready() -> void:
@@ -65,7 +64,7 @@ func _build_category_tile(category: CodexCategory) -> Button:
 		if StoryCodex.is_entry_unlocked(entry.id):
 			unlocked_count += 1
 	var button := _make_tile_button()
-	button.icon = _placeholder_texture(category.color)
+	button.icon = CodexText.placeholder_texture(category.color, TILE_ICON_SIZE)
 	button.text = "%s\n%d/%d" % [category.label, unlocked_count, entries.size()]
 	button.pressed.connect(_show_entries.bind(category))
 	return button
@@ -89,11 +88,11 @@ func _populate_entries(category: CodexCategory) -> void:
 func _build_entry_tile(category: CodexCategory, entry: CodexEntry) -> Button:
 	var button := _make_tile_button()
 	if StoryCodex.is_entry_unlocked(entry.id):
-		button.icon = entry.image if entry.image != null else _placeholder_texture(category.color)
+		button.icon = entry.image if entry.image != null else CodexText.placeholder_texture(category.color, TILE_ICON_SIZE)
 		button.text = entry.title
 		button.pressed.connect(_show_detail.bind(category, entry))
 	else:
-		button.icon = _placeholder_texture(category.color.darkened(0.6))
+		button.icon = CodexText.placeholder_texture(category.color.darkened(0.6), TILE_ICON_SIZE)
 		button.text = "???"
 		button.disabled = true
 	return button
@@ -153,7 +152,7 @@ func _build_image_frame(category: CodexCategory, entry: CodexEntry) -> PanelCont
 	var image_rect := TextureRect.new()
 	image_rect.expand_mode = 1
 	image_rect.stretch_mode = 5
-	image_rect.texture = entry.image if entry.image != null else _placeholder_texture(category.color)
+	image_rect.texture = entry.image if entry.image != null else CodexText.placeholder_texture(category.color)
 	margin.add_child(image_rect)
 	frame.add_child(margin)
 	return frame
@@ -178,15 +177,3 @@ func _make_tile_button() -> Button:
 	button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
 	return button
-
-## Solid-color square used as a category "folder" swatch, or as a stand-in
-## for entries that don't have a real illustration yet - so every tile looks
-## intentional even before art assets exist.
-func _placeholder_texture(color: Color) -> ImageTexture:
-	if _placeholder_cache.has(color):
-		return _placeholder_cache[color]
-	var image := Image.create(PLACEHOLDER_SIZE.x, PLACEHOLDER_SIZE.y, false, Image.FORMAT_RGBA8)
-	image.fill(color)
-	var texture := ImageTexture.create_from_image(image)
-	_placeholder_cache[color] = texture
-	return texture
