@@ -1,29 +1,29 @@
-[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="StoryNode" format=3 uid="uid://delc28hiexblm"]
 
-[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+[ext_resource type="Script" uid="uid://keyu0yarniql" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwrp88fmyeigl" path="res://scripts/resources/story_choice.gd" id="2"]
 
-[sub_resource type="Resource" id="StoryChoice_front"]
+[sub_resource type="Resource" id="StoryChoice_force"]
 script = ExtResource("2")
-text = "Go in through the front door"
-target_node_id = "front_door"
-required_flags = {}
+text = "Force the airlock open."
+target_node_id = "pod_chamber"
 set_flags = {
-"entered_front": true
+"forced": true,
+"learned_truth": false
 }
 
-[sub_resource type="Resource" id="StoryChoice_back"]
+[sub_resource type="Resource" id="StoryChoice_hack"]
 script = ExtResource("2")
-text = "Sneak around to the back"
-target_node_id = "back_door"
-required_flags = {}
+text = "Slice into the console instead."
+target_node_id = "console_intel"
 set_flags = {
-"entered_back": true
+"hacked": true
 }
 
 [resource]
 script = ExtResource("1")
 id = "start"
-text = "The old house at the end of Marrow Lane has been empty for years. Tonight, on a dare, you push open its rusted gate.\n\nDo you go in through the front door, or sneak around to the back?"
-set_flags_on_enter = {}
-choices = [SubResource("StoryChoice_front"), SubResource("StoryChoice_back")]
+text = "Kharon-9's distress beacon has been pulsing for six years. You only picked it up because your ship's old military-band receiver still listens on frequencies nobody uses anymore.
+
+The station is dark except for one corridor light, guttering behind a frost-sealed airlock. Your suit's bio-scanner locks onto something inside - a heartbeat, slow and steady, where the crew manifest says there should be nothing left alive."
+choices = Array[ExtResource("2")]([SubResource("StoryChoice_force"), SubResource("StoryChoice_hack")])

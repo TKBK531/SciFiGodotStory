@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StoryNode" format=3 uid="uid://be0218x5taisu"]
+
+[ext_resource type="Script" uid="uid://keyu0yarniql" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" uid="uid://dwrp88fmyeigl" path="res://scripts/resources/story_choice.gd" id="1_4hjil"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_bond"
+text = "The pod hisses open. What was Voss looks at you, and for a moment you feel it too - not words, but understanding, spreading up your arm where its hand meets yours. Six years alone, and it only ever wanted to stop being alone.
+
+You radio your ship with a message no one back home will believe: Kharon-9 is not a rescue. It's a first contact.
+
+— You made a friend the rest of humanity isn't ready for. —"

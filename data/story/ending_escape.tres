@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_escape"
+text = "You kill the feed to the pod's containment field and don't look back. Behind you, the heartbeat on your scanner slows, falters, and finally stops somewhere around the time your shuttle clears the station's shadow.\n\nYou tell your ship's log it was a standard derelict, no survivors. You almost believe it yourself.\n\n— You left Kharon-9 exactly as dark as you found it. —"
+set_flags_on_enter = {}
+choices = []

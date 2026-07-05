@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_consumed"
+text = "The seal tears loose under your hands and the thing inside doesn't wait for an introduction. It moves faster than Voss's old body should allow, and the last clear thought you have is that the logs were right - it never wanted to take anything.\n\nIt just didn't expect you to refuse it so violently.\n\n— Kharon-9 keeps its distress beacon running. —"
+set_flags_on_enter = {}
+choices = []
