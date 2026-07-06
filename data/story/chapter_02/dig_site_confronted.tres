@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_go_in"]
+script = ExtResource("2")
+text = "Go in."
+target_node_id = "the_find"
+impact = 0
+
+[resource]
+script = ExtResource("1")
+id = "dig_site_confronted"
+chapter_id = "chapter_02"
+label = "Down the Shaft"
+text = "Kestrel walks you down herself, muttering that this is either the smartest or the last stupid thing she'll do this year. The shaft opens into a chamber that isn't natural, and isn't Halcyon construction either. The air tastes faintly of frost, the way Kharon-9's corridors did."
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_go_in")]

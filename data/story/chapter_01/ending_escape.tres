@@ -1,6 +1,13 @@
-[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="StoryNode" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_continue"]
+script = ExtResource("2")
+text = "(Six months later, a new signal reaches you.)"
+target_node_id = "meridian_arrival"
+impact = 0
 
 [resource]
 script = ExtResource("1")
@@ -8,6 +15,8 @@ id = "ending_escape"
 chapter_id = "chapter_01"
 label = "Walk Away"
 text = "You kill the feed to the pod's containment field and don't look back. Behind you, the heartbeat on your scanner slows, falters, and finally stops somewhere around the time your shuttle clears the station's shadow.\n\nYou tell your ship's log it was a standard derelict, no survivors. You almost believe it yourself.\n\n— You left Kharon-9 exactly as dark as you found it. —"
-set_flags_on_enter = {}
+set_flags_on_enter = {
+"escaped_alone": true
+}
 is_chapter_end = true
-choices = []
+choices = [SubResource("StoryChoice_continue")]

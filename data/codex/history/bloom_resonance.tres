@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "bloom_resonance"
+category_id = "history"
+title = "Bloom Resonance"
+description = "Dr. Sarel's term for the shared dream reported by a growing number of Meridian's colonists - always the same imagery, always in a language none of them speak, always beginning within days of new activity in the mining tunnels."
+backstory = "Sarel first documented the pattern after three colonists in unconnected shifts independently described the same dream to Meridian's medical staff within a single week - the same phenomenon that preceded the identification of the Bloom specimen on Mnemosyne."
+details = {
+"Date": "Ongoing, six months after Kharon-9",
+"Location": "Meridian Outpost, lower tunnels"
+}

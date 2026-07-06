@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_confront"]
+script = ExtResource("2")
+text = "Go down and confront the smugglers yourself."
+target_node_id = "smuggler_confrontation"
+attribute_changes = {
+"courage": 1
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_logic_quiet"]
+script = ExtResource("2")
+text = "Pull the seismic logs and find their dig site without them knowing."
+target_node_id = "dig_site_quiet"
+required_attributes = {
+"logic": 6
+}
+hide_if_locked = false
+set_flags = {
+"quiet_approach": true
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_guild_quiet"]
+script = ExtResource("2")
+text = "Ask Dr. Sarel to quietly pull the Guild's own scan data."
+target_node_id = "dig_site_quiet"
+required_faction_trust = {
+"science_guild": 5
+}
+hide_if_locked = true
+set_flags = {
+"guild_backed": true
+}
+faction_changes = {
+"science_guild": 10
+}
+impact = 2
+
+[resource]
+script = ExtResource("1")
+id = "tunnel_rumors"
+chapter_id = "chapter_02"
+label = "Old Tunnels"
+text = "However you got the story, it lines up: a salvage crew calling itself independent - everyone knows they're smugglers - has been quietly widening an old mining shaft for three weeks. Whatever they're digging toward, the seismic returns look nothing like ore.\n\nA woman named [codex:kestrel]Kestrel[/codex] runs the crew, and by all accounts isn't interested in sharing. [codex:yuki_sarel]Dr. Yuki Sarel[/codex], who leads what's left of the research consortium, has her own theories about what the tunnels are aimed at - she just won't say them to anyone wearing a Halcyon patch."
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_confront"), SubResource("StoryChoice_logic_quiet"), SubResource("StoryChoice_guild_quiet")]

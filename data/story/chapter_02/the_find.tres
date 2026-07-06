@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_communion"]
+script = ExtResource("2")
+text = "Let it recognize you, the way it recognized Voss."
+target_node_id = "ending_communion"
+required_flags = {
+"bonded_with_bloom": true
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_contained"]
+script = ExtResource("2")
+text = "Call it in and hand it to Halcyon custody."
+target_node_id = "ending_contained"
+required_faction_trust = {
+"government": 10
+}
+hide_if_locked = false
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_buried"]
+script = ExtResource("2")
+text = "Help the colonists seal the chamber for good."
+target_node_id = "ending_buried"
+required_faction_trust = {
+"townspeople": 5
+}
+hide_if_locked = true
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_vanished"]
+script = ExtResource("2")
+text = "Take the fragment and vanish before anyone arrives."
+target_node_id = "ending_vanished"
+faction_changes = {
+"government": -10,
+"townspeople": -10,
+"science_guild": -10,
+"smugglers": -10
+}
+attribute_changes = {
+"courage": 1
+}
+impact = 2
+
+[resource]
+script = ExtResource("1")
+id = "the_find"
+chapter_id = "chapter_02"
+label = "The Resonant Chamber"
+text = "Embedded in the chamber wall is a fragment [codex:the_bloom]the Bloom[/codex] itself might have grown, if growing is the word - the same non-color, the same wrongness that made Kharon-9's crew stop writing coherent logs. It isn't reaching for you. It's waiting to see if you'll reach back.\n\nWhatever you decide here won't stay a secret for long. Halcyon, the colonists, and whoever's left of Kestrel's crew all know exactly where you are."
+set_flags_on_enter = {
+"found_the_relic": true
+}
+is_chapter_end = false
+unlocks = ["resonant_shard", "bloom_resonance"]
+choices = [SubResource("StoryChoice_communion"), SubResource("StoryChoice_contained"), SubResource("StoryChoice_buried"), SubResource("StoryChoice_vanished")]

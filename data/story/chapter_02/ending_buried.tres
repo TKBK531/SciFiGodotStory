@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_buried"
+chapter_id = "chapter_02"
+label = "Sealed"
+text = "The colonists don't need convincing - half of them have been dreaming about this chamber for weeks without knowing why. You work through the night with borrowed mining charges, and by morning the shaft is rubble from the surface down.\n\nNo custody chain, no research paper, no report Halcyon can quietly file away. Just a mountain that keeps its secret, and a town that finally sleeps without dreaming.\n\n— Some doors are worth closing without asking what's on the other side. —"
+set_flags_on_enter = {}
+is_chapter_end = true
+choices = []

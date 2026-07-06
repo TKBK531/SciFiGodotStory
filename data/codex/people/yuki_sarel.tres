@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "yuki_sarel"
+category_id = "character"
+title = "Dr. Yuki Sarel"
+description = "Lead of the independent research consortium at Meridian Outpost. Formerly Halcyon Dynamics, formerly convinced her old employer's silence on incidents like Kharon-9 was ordinary corporate caution - until she asked why an entire xenobiology division stopped publishing at once."
+backstory = "Sarel resigned from Halcyon two years ago, quietly, with no severance dispute and no public statement - the kind of exit that only draws attention because of how hard she avoided drawing any."
+facts = ["Keeps every research log in triplicate, on media Halcyon has no access to.", "Refuses to discuss what she found in her final month at Halcyon."]

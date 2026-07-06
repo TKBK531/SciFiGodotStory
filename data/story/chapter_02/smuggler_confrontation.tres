@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_stand_ground"]
+script = ExtResource("2")
+text = "Stand your ground and demand to know what they found."
+target_node_id = "dig_site_confronted"
+required_attributes = {
+"resolve": 6
+}
+hide_if_locked = false
+set_flags = {
+"stood_ground": true
+}
+faction_changes = {
+"smugglers": 5
+}
+impact = 1
+
+[sub_resource type="Resource" id="StoryChoice_force_smugglers"]
+script = ExtResource("2")
+text = "Draw down and threaten to shut the whole dig down."
+target_node_id = "dig_site_confronted"
+set_flags = {
+"forced_smugglers": true
+}
+attribute_changes = {
+"courage": 1
+}
+faction_changes = {
+"smugglers": -15
+}
+impact = 1
+
+[resource]
+script = ExtResource("1")
+id = "smuggler_confrontation"
+chapter_id = "chapter_02"
+label = "Kestrel's Crew"
+text = "The shaft entrance is barely disguised, and [codex:kestrel]Kestrel[/codex] doesn't bother pretending surprise when you find it. She's got four crew behind her and a look that says she's done this calculation before you finished walking down the ramp.\n\n\"Whatever you think you're here to stop,\" she says, \"we found it first. That has to count for something.\""
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_stand_ground"), SubResource("StoryChoice_force_smugglers")]

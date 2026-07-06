@@ -1,6 +1,13 @@
-[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="StoryNode" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_continue"]
+script = ExtResource("2")
+text = "(Six months later, a new signal reaches you.)"
+target_node_id = "meridian_arrival"
+impact = 0
 
 [resource]
 script = ExtResource("1")
@@ -8,6 +15,8 @@ id = "ending_bond"
 chapter_id = "chapter_01"
 label = "First Contact"
 text = "The pod hisses open. What was Voss looks at you, and for a moment you feel it too - not words, but understanding, spreading up your arm where its hand meets yours. Six years alone, and it only ever wanted to stop being alone.\n\nYou radio your ship with a message no one back home will believe: Kharon-9 is not a rescue. It's a first contact.\n\n— You made a friend the rest of humanity isn't ready for. —"
-set_flags_on_enter = {}
+set_flags_on_enter = {
+"bonded_with_bloom": true
+}
 is_chapter_end = true
-choices = []
+choices = [SubResource("StoryChoice_continue")]

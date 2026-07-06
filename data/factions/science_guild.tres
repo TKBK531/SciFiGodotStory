@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FactionDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/faction_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "science_guild"
+label = "Science Guild"
+color = Color(0.35, 0.75, 0.7, 1)
+min_value = -100.0
+max_value = 100.0
+starting_value = 0.0
+sort_order = 3

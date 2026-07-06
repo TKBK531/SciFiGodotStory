@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_contained"
+chapter_id = "chapter_02"
+label = "Chain of Custody"
+text = "The garrison commander doesn't ask how you found it, only how fast you can hand it over. Within the hour it's crated, sealed, and manifested under a designation that doesn't exist on any public registry - the same designation, you'd bet, that swallowed whatever Kharon-9's parent division used to be.\n\nYou did the responsible thing. You try not to think about what \"responsible\" meant for Voss.\n\n— Halcyon Dynamics thanks you for your discretion. —"
+set_flags_on_enter = {}
+is_chapter_end = true
+choices = []

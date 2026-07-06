@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "meridian_outpost"
+category_id = "place"
+title = "Meridian Outpost"
+description = "A mining and research settlement bolted to the underside of a rust-colored asteroid, half a system away from Kharon-9. Halcyon Dynamics maintains a garrison here; an unaffiliated research consortium maintains an uneasy truce with them."
+backstory = "Founded as an ore-processing waypoint, Meridian outgrew its original purpose within a decade as researchers - and eventually black-market salvagers - took an interest in what the mining shafts kept turning up alongside the ore."
+details = {
+"Coordinates": "Outer belt, second ring"
+}

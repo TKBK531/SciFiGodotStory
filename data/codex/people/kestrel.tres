@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "kestrel"
+category_id = "character"
+title = "Kestrel"
+description = "Runs the salvage crew that's been quietly widening a mining shaft at Meridian for three weeks. Not officially a smuggler - officially nobody at Meridian is anything - but nobody calls her crew independent salvagers with a straight face either."
+backstory = "Kestrel has worked every fringe outpost between here and the belt's edge, always one step ahead of whichever authority claims jurisdiction that year. She has never yet found something worth staying still for."
+facts = ["Pays her crew in shares, not wages - nobody's walked off a job of hers in six years.", "Keeps her ship fueled and pointed away from the dock at all times."]

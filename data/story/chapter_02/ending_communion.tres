@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_communion"
+chapter_id = "chapter_02"
+label = "Second Contact"
+text = "You already know what happens when you reach back - Voss showed you, six years too late for anyone to warn you. The shard doesn't take. It joins. Somewhere behind your own thoughts, something old and patient recognizes an old friend, and the dreams across Meridian go quiet the same night.\n\nYou don't file a report. You don't need to. It already knows exactly where to find you.\n\n— The Bloom isn't spreading. It's gathering. —"
+set_flags_on_enter = {}
+is_chapter_end = true
+choices = []

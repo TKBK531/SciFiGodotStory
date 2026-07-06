@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "ending_vanished"
+chapter_id = "chapter_02"
+label = "No Forwarding Address"
+text = "You wrap the shard in a thermal blanket that does nothing to explain the warmth and you're back on your ship before Kestrel's crew finishes arguing about who saw it first. Halcyon will want words. The colonists will want answers. Dr. Sarel will want it back, professionally and then not.\n\nYou set a course for nowhere in particular and let the transponder go quiet somewhere past the belt.\n\n— You left everyone with a piece of the mystery and none of the closure. —"
+set_flags_on_enter = {}
+is_chapter_end = true
+choices = []

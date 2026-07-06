@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CodexEntry" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/codex_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "resonant_shard"
+category_id = "collectable"
+title = "Resonant Shard"
+description = "A fragment pulled from the chamber beneath Meridian's tunnels, grown rather than shaped, in the same non-color that made Kharon-9's crew stop writing coherent logs. It is warm. It should not be warm."

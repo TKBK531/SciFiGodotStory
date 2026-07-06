@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="StoryNode" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/story_node.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/resources/story_choice.gd" id="2"]
+
+[sub_resource type="Resource" id="StoryChoice_report_gov"]
+script = ExtResource("2")
+text = "Report to the Halcyon garrison commander first."
+target_node_id = "tunnel_rumors"
+set_flags = {
+"reported_to_gov": true
+}
+attribute_changes = {
+"resolve": 1
+}
+faction_changes = {
+"government": 5
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_seek_guild"]
+script = ExtResource("2")
+text = "Seek out the independent researchers instead."
+target_node_id = "tunnel_rumors"
+set_flags = {
+"sought_guild": true
+}
+attribute_changes = {
+"logic": 1
+}
+faction_changes = {
+"science_guild": 5
+}
+impact = 2
+
+[sub_resource type="Resource" id="StoryChoice_listen_town"]
+script = ExtResource("2")
+text = "Listen to what the colonists are afraid of, before anything official."
+target_node_id = "tunnel_rumors"
+required_attributes = {
+"empathy": 6
+}
+hide_if_locked = false
+attribute_changes = {
+"empathy": 1
+}
+faction_changes = {
+"townspeople": 5
+}
+impact = 2
+
+[resource]
+script = ExtResource("1")
+id = "meridian_arrival"
+chapter_id = "chapter_02"
+label = "Meridian Outpost"
+text = "[codex:meridian_outpost]Meridian Outpost[/codex] clings to the underside of a rust-colored asteroid, six months and half a system away from Kharon-9's frozen corridors. You told yourself you'd never think about that station again. You were wrong within a week - the same rumors that brought you to Kharon-9 have followed you here: colonists reporting a shared dream, always the same one, always in a language none of them speak.\n\nHalcyon Dynamics keeps a garrison here. An unaffiliated research consortium keeps an uneasy truce with them. And word is, something in the old mining tunnels has both of them - and a third, less official interest - digging in the same direction."
+set_flags_on_enter = {}
+is_chapter_end = false
+choices = [SubResource("StoryChoice_report_gov"), SubResource("StoryChoice_seek_guild"), SubResource("StoryChoice_listen_town")]
