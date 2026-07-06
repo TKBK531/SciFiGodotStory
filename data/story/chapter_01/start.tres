@@ -11,6 +11,12 @@ set_flags = {
 "forced": true,
 "learned_truth": false
 }
+attribute_changes = {
+"courage": 1
+}
+faction_changes = {
+"government": -5
+}
 impact = 2
 
 [sub_resource type="Resource" id="StoryChoice_hack"]
@@ -19,6 +25,12 @@ text = "Slice into the console instead."
 target_node_id = "console_intel"
 set_flags = {
 "hacked": true
+}
+attribute_changes = {
+"empathy": 1
+}
+faction_changes = {
+"government": 5
 }
 impact = 2
 

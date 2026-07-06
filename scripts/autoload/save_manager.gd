@@ -14,6 +14,8 @@ func save_game(slot: int = 1) -> bool:
 		"current_node_id": StoryState.current_node_id,
 		"flags": StoryState.flags,
 		"history": StoryState.history,
+		"attributes": StoryState.attributes,
+		"faction_trust": StoryState.faction_trust,
 		"timestamp": Time.get_datetime_string_from_system(),
 	}
 	var file := FileAccess.open(_slot_path(slot), FileAccess.WRITE)
@@ -29,6 +31,8 @@ func load_game(slot: int = 1) -> bool:
 		return false
 	StoryState.flags = save_data.get("flags", {})
 	StoryState.current_node_id = save_data.get("current_node_id", StoryState.START_NODE_ID)
+	StoryState.attributes = save_data.get("attributes", {})
+	StoryState.faction_trust = save_data.get("faction_trust", {})
 	StoryState.history.clear()
 	var loaded_history: Array = save_data.get("history", [])
 	for node_id in loaded_history:

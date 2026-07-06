@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stats_panel.gd" id="1"]
+[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2"]
+
+[node name="StatsPanel" type="Control"]
+custom_minimum_size = Vector2(480, 480)
+layout_mode = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Root"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+text = "Stats"
+
+[node name="Scroll" type="ScrollContainer" parent="Root"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContent" type="VBoxContainer" parent="Root/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="AttributesSection" type="VBoxContainer" parent="Root/Scroll/ScrollContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttributesHeader" type="Label" parent="Root/Scroll/ScrollContent/AttributesSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Attributes"
+
+[node name="AttributesContainer" type="VBoxContainer" parent="Root/Scroll/ScrollContent/AttributesSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FactionsSection" type="VBoxContainer" parent="Root/Scroll/ScrollContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FactionsHeader" type="Label" parent="Root/Scroll/ScrollContent/FactionsSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Factions"
+
+[node name="FactionsContainer" type="VBoxContainer" parent="Root/Scroll/ScrollContent/FactionsSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"

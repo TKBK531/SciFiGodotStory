@@ -29,6 +29,10 @@ text = "Kill the life support and go."
 target_node_id = "ending_escape"
 required_flags = {}
 set_flags = {}
+required_attributes = {
+"courage": 6
+}
+hide_if_locked = false
 impact = 2
 
 [resource]

@@ -79,21 +79,48 @@ func _on_typing_finished() -> void:
 
 func _populate_choices() -> void:
 	_clear_choices()
-	var available: Array[StoryChoice] = []
+	var flag_available: Array[StoryChoice] = []
 	for choice in _current_node.choices:
 		if StoryState.meets_requirements(choice.required_flags):
-			available.append(choice)
-	if available.is_empty():
+			flag_available.append(choice)
+	var shown_any := false
+	for choice in flag_available:
+		var locked := not (StoryState.meets_min_attributes(choice.required_attributes) \
+			and StoryState.meets_min_faction_trust(choice.required_faction_trust))
+		if locked and choice.hide_if_locked:
+			continue
+		shown_any = true
+		var button := Button.new()
+		if locked:
+			button.text = "%s  (%s)" % [choice.text, _lock_hint(choice)]
+			button.disabled = true
+		else:
+			button.text = choice.text
+			button.pressed.connect(_on_choice_selected.bind(choice))
+		choices_container.add_child(button)
+	if not shown_any:
 		var end_label := Label.new()
 		end_label.text = "— The End —"
 		end_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		choices_container.add_child(end_label)
-		return
-	for choice in available:
-		var button := Button.new()
-		button.text = choice.text
-		button.pressed.connect(_on_choice_selected.bind(choice))
-		choices_container.add_child(button)
+
+## Lists only the attribute/faction requirements this choice doesn't
+## currently meet, e.g. "Requires Courage 6+".
+func _lock_hint(choice: StoryChoice) -> String:
+	var parts: Array[String] = []
+	for attribute_id in choice.required_attributes:
+		var required_value: float = choice.required_attributes[attribute_id]
+		if StoryState.get_attribute(attribute_id) < required_value:
+			var definition := AttributeDatabase.get_attribute(attribute_id)
+			var label: String = definition.label if definition != null else attribute_id
+			parts.append("%s %d+" % [label, int(required_value)])
+	for faction_id in choice.required_faction_trust:
+		var required_value: float = choice.required_faction_trust[faction_id]
+		if StoryState.get_faction_trust(faction_id) < required_value:
+			var definition := FactionDatabase.get_faction(faction_id)
+			var label: String = definition.label if definition != null else faction_id
+			parts.append("%s Trust %d+" % [label, int(required_value)])
+	return "Requires " + ", ".join(parts)
 
 func _clear_choices() -> void:
 	for child in choices_container.get_children():
@@ -105,6 +132,10 @@ func _on_choice_selected(choice: StoryChoice) -> void:
 		StoryCodex.unlock_entry(entry_id)
 	for flag_name in choice.set_flags:
 		StoryState.set_flag(flag_name, choice.set_flags[flag_name])
+	for attribute_id in choice.attribute_changes:
+		StoryState.modify_attribute(attribute_id, choice.attribute_changes[attribute_id])
+	for faction_id in choice.faction_changes:
+		StoryState.modify_faction_trust(faction_id, choice.faction_changes[faction_id])
 	_goto_node(choice.target_node_id)
 
 func _on_pause_pressed() -> void:
