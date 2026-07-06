@@ -1,10 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://5yuc8a5xfje5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
 bg_color = Color(0.129, 0.145, 0.204, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -12,10 +12,10 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
 bg_color = Color(0.196, 0.635, 0.529, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -23,10 +23,10 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
 bg_color = Color(0.157, 0.518, 0.435, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10

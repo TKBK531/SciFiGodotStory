@@ -23,6 +23,18 @@ func _on_game_paused() -> void:
 func _on_game_resumed() -> void:
 	visible = false
 
+## Handles the Android back button (mapped to ui_cancel) so it steps back a
+## level instead of falling through unhandled - on Android, an unhandled back
+## press quits the app outright.
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("ui_cancel"):
+		return
+	get_viewport().set_input_as_handled()
+	if not main_buttons.visible:
+		_show_main_buttons()
+	else:
+		GameManager.resume_game()
+
 func _show_main_buttons() -> void:
 	main_buttons.visible = true
 	save_slots_panel.visible = false

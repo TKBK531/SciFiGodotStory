@@ -91,6 +91,8 @@ func _populate_choices() -> void:
 			continue
 		shown_any = true
 		var button := Button.new()
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.custom_minimum_size = Vector2(0, 56)
 		if locked:
 			button.text = "%s  (%s)" % [choice.text, _lock_hint(choice)]
 			button.disabled = true

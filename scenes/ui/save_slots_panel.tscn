@@ -4,8 +4,9 @@
 [ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2"]
 
 [node name="SaveSlotsPanel" type="Control"]
-custom_minimum_size = Vector2(420, 460)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("2")
 script = ExtResource("1")
 

@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.65)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -24,7 +24,12 @@ theme = ExtResource("2")
 
 [node name="Panel" type="PanelContainer" parent="CenterContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchor_left = 0.06
+anchor_top = 0.5
+anchor_right = 0.94
+anchor_bottom = 0.5
+grow_vertical = 2
 
 [node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
 layout_mode = 2
@@ -36,7 +41,6 @@ theme_override_constants/margin_bottom = 24
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 12
-custom_minimum_size = Vector2(400, 0)
 
 [node name="HeaderRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/VBoxContainer"]
 layout_mode = 2

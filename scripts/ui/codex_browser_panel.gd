@@ -37,10 +37,21 @@ func _ready() -> void:
 	categories_back_button.pressed.connect(func() -> void: closed.emit())
 	entries_back_button.pressed.connect(_show_categories)
 	detail_back_button.pressed.connect(_show_entries.bind(null))
+	resized.connect(_update_grid_columns)
+	_update_grid_columns()
 	refresh()
 
 func refresh() -> void:
 	_show_categories()
+
+## Recomputes how many tiles fit per row from the panel's actual width, so
+## the grid reflows between a narrow phone and a wide tablet/desktop window
+## instead of a column count tuned for one screen size only.
+func _update_grid_columns() -> void:
+	var h_separation: int = categories_grid.get_theme_constant("h_separation")
+	var columns: int = max(2, floori(size.x / (TILE_SIZE.x + h_separation)))
+	categories_grid.columns = columns
+	entries_grid.columns = columns
 
 func _show_categories() -> void:
 	detail_view.visible = false
